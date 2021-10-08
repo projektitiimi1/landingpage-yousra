@@ -26,6 +26,14 @@ html, body {
 
 }
 
+#log-in {
+  color: #A7AC38;
+}
+
+#log-in:hover {
+  color: #C4A53E;
+}
+
 #logo {
   padding-left:20px ;
 }
