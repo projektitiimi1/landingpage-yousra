@@ -23,7 +23,6 @@ html, body {
 
 .navbar .navbar-nav .nav-link:hover {
   color: #A7AC38;
-
 }
 
 #log-in {
@@ -35,14 +34,13 @@ html, body {
 }
 
 #logo {
-  padding-left:20px ;
+  padding-left: 15px;
 }
 
 #logo:hover {
     transform: translateY(0) scale(1.2);
-    letter-spacing: 0.1rem;
+    letter-spacing: 2px;
     transition: 0.7s;
-    letter-spacing: 10px;
     text-decoration: none;
     color:  #C4A53E;
 }
@@ -63,8 +61,7 @@ html, body {
 }
 
 .btn-outline-secondary:hover {
-  background-color: #A7AC38 ;
-
+  background-color: #A7AC38;
 }
 
 .padding {
