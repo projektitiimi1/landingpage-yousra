@@ -87,6 +87,10 @@ html, body {
   border: solid 2px #A7AC38;
 }
 
+.form-outline {
+  color: #C4A53E ;
+}
+
 .padding {
   padding-bottom: 20px;
 }
