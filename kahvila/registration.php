@@ -18,22 +18,7 @@ require_once('config.php');
 <body>
     
     <?php
-        if(isset($_POST['create'])) {
-            $firstname = $_POST['firstname'];
-            $lastname = $_POST['lastname'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-
-            $sql = "INSERT INTO users (firstname, lastname, email, password ) VALUES(?,?,?,?)";
-            $stminsert = $db->prepare($sql);
-            $result = $stmtinsert->execute([$firstname, $lastname, $email, $password]);
-            if($result) {
-                echo'Successfully saved.';
-            }else {
-                echo 'There were errors while saving the data';
-            }
-
-        }
+      
     ?>
 
     <section>
