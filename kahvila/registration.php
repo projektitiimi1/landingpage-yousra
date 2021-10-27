@@ -101,7 +101,7 @@ require_once('config.php');
 				    succes: function(data) {
 					    Swal.fire({
                                                 'title': 'Successful',
-                                                'text': 'Successfully registered',
+                                                'text': data,
                                                 'type': 'success'   
                                                 })
 				    },
