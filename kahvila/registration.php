@@ -46,23 +46,23 @@ require_once('config.php');
                                 <h3 class="text-center fw-bold mb-5">Create an account</h3>
                                 <form action="signup.php" method="post">
                                     <div class="form-outline mb-4">
-                                        <input type="text" name="firstname" required class="form-control form-control-lg" />
+                                        <input type="text" name="firstname" required class="form-control form-control-lg" id="firstname" />
                                         <label class="form-label" for="firstname">First Name</label>
                                       </div>
                                       <div class="form-outline mb-4">
-                                        <input type="text" name="lastname" required class="form-control form-control-lg" />
+                                        <input type="text" name="lastname" required class="form-control form-control-lg"  id="lastname" />
                                         <label class="form-label" for="lastname">Last Name</label>
                                       </div>
                                       <div class="form-outline mb-4">
-                                        <input type="email" name="email" required class="form-control form-control-lg" />
+                                        <input type="email" name="email" required class="form-control form-control-lg"  id="email" />
                                         <label class="form-label" for="email">Email</label>
                                       </div>                   
                                       <div class="form-outline mb-4">
-                                        <input type="password" name="password" required class="form-control form-control-lg">
+                                        <input type="password" name="password" required class="form-control form-control-lg"  id="password">
                                         <label class="form-label" for="password">Password</label>
                                       </div>                     
                                       <div class="d-flex justify-content-center">
-                                        <input class="btn btn-success btn-block btn-lg" type="submit" name="create" value="Sign Up">
+                                        <input class="btn btn-success btn-block btn-lg" type="submit" id="register" name="create" value="Sign Up">
                                       </div>
                                       <p class="text-center text-muted mt-5 mb-2">Have already an account? <a href="#" class="fw-bold text-body"><u>Login here</u></a></p>
                                 </form>
@@ -79,12 +79,50 @@ require_once('config.php');
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
     $(function(){
-       // alert('hello.');
-       Swal.fire({
-           'title': 'Hello World',
-           'text': 'This is from sweetalert2',
-           'type': 'success'
-       })
+	    $('#register').click(function(){
+		    
+		    var valid = this.form.checkValidity();
+		    
+		    
+		    if(valid){
+			    
+	           var firstname = $('#firstname').val();
+		    var lastname = $('#lastname').val();
+		    var email = $('#email').val();
+		    var phonenumber = $('#phonenumber').val();
+		    var password = $('#password').val();
+			    
+			    e.preventDefault();
+			    
+			    $.ajax({
+				    type: 'POST',
+				    url: 'process.php',
+				    data: {firstname: firstname,lastname: lastname,email: email, phonenumber: phonenumber, password: password},
+				    succes: function(data) {
+					    Swal.fire({
+                                                'title': 'Successful',
+                                                'text': 'Successfully registered',
+                                                'type': 'success'   
+                                                })
+				    },
+				    error: function(data){
+					    Swal.fire({
+                                                'title': 'Errors',
+                                                'text': 'There were errors while saving the data',
+                                                'type': 'error'   
+                                                })
+				    }
+			    });
+			    
+			   
+		    }else {
+			 
+		    }
+		    
+		
+	    });
+	    
+  
     });
 </script>
 </html>
